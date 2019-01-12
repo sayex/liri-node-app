@@ -1,10 +1,17 @@
 require("dotenv").config();
+require("Axios");
+require("moment");
+
 var keys = require("./keys.js");
-var spotify = new Spotify(keys.spotify);
+
 // var omdb = new Omdb(keys.omdb);
+var Spotify = require('node-spotify-api');
+
+var spotify = new Spotify(keys.spotify);
+console.log(spotify)
 
 var searchEndPoint = process.argv[2];
-var search = process.argv[3]
+var search = process.argv[3];
 
 
 switch (searchEndPoint) {
