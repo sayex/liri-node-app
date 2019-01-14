@@ -5,6 +5,10 @@ exports.spotify = {
         secret: process.env.SPOTIFY_SECRET
 }
 
-// exports.Ombd = {
-//         key: process.env.OMDB_Key
-// }
+exports.omdb = {
+        key: process.env.OMDB_Key
+}
+
+exports.bit = {
+        key: process.env.BIT_Key
+}

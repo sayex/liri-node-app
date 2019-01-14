@@ -4,11 +4,15 @@ require("moment");
 
 var keys = require("./keys.js");
 
-// var omdb = new Omdb(keys.omdb);
+var omdb = keys.omdb
+var BitKey = keys.bit
 var Spotify = require('node-spotify-api');
 
 var spotify = new Spotify(keys.spotify);
-console.log(spotify)
+console.log(keys)
+console.log(spotify);
+console.log(omdb);
+console.log(BitKey);
 
 var searchEndPoint = process.argv[2];
 var search = process.argv[3];
