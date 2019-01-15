@@ -54,12 +54,10 @@ function searchSpotify() {
         if (err) {
             return console.log('Error occurred: ' + err);
         }
-        var results = data.items
-        console.log(data.tracks.items)
-        // for (i = 0; i < data.tracks.length; i++) {
-        //     console.log(data.tracks[i]);
-        // }
-        // console.log(data.tracks)
+        var results = data.tracks.items[0];
+        console.log(results.name)
+        console.log(results.href)
+        console.log(results.album.name)
     });
 }
 
@@ -88,5 +86,6 @@ function searchOMDB() {
 }
 
 function sayWhat() {
+
     console.log("say what?")
 }
