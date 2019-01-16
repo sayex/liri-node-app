@@ -75,10 +75,21 @@ function searchBands() {
 }
 
 function searchOMDB() {
-    axios.get('http://www.omdbapi.com/?apikey=' + omdb + '&s=' + search)
+    axios.get('http://www.omdbapi.com/?apikey=' + omdb + '&t=' + search)
         .then(function (response) {
-            resp = response
-            console.log(resp);
+            if (search = "") {
+                search = "Mr. Nobody"
+            }
+            resp = response.data
+            console.log(resp.Title);
+            console.log(resp.Year);
+            console.log(resp.Ratings[1].Value);
+            console.log(resp.Country);
+            console.log(resp.Language);
+            console.log(resp.Plot);
+            console.log(resp.Actors);
+
+
         })
         .catch(function (error) {
             console.log(error);
