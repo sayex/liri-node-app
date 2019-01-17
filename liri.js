@@ -64,7 +64,14 @@ function searchSpotify() {
 function searchBands() {
     axios.get("https://rest.bandsintown.com/artists/" + search + "/events?app_id=" + bitKey)
         .then(function (response) {
-            console.log(response);
+            resp = response.data
+            for (i = 0; i < resp.length; i++) {
+                console.log("Venue: " + resp[i].venue.name);
+                console.log("Location: " + resp[i].venue.city);
+                var convertedDate = moment(resp[i].datetime, "YYYY-MM-DD").format("MM/DD/YYYY")
+                console.log("Date: " + convertedDate);
+                console.log("______________________");
+            }
         })
         .catch(function (error) {
             console.log(error);
