@@ -25,7 +25,7 @@ function firstRun() {
 
 
 
-// create our switch function
+// create our switch function taking the comandline argv or the random.text argv
 
 function searchDatabase(searchEndPoint, search) {
 
