@@ -60,6 +60,7 @@ function searchDatabase(searchEndPoint, search) {
 
 // create our functions for each switch item.
 
+//sptoify search function
 function searchSpotify(search) {
 
     spotify.search({
@@ -75,7 +76,7 @@ function searchSpotify(search) {
         console.log(results.album.name)
     });
 }
-
+//bands in town search function
 function searchBands(search) {
     axios.get("https://rest.bandsintown.com/artists/" + search + "/events?app_id=" + bitKey)
         .then(function (response) {
@@ -95,7 +96,7 @@ function searchBands(search) {
 
 
 }
-
+//omdb search function
 function searchOMDB(search) {
     axios.get('http://www.omdbapi.com/?apikey=' + omdb + '&t=' + search)
         .then(function (response) {
@@ -117,14 +118,13 @@ function searchOMDB(search) {
             console.log(error);
         });
 }
-
+//FS read file random.txt function
 function sayWhat() {
 
     fs.readFile("random.txt", "utf8", function (error, data) {
         if (error) {
             return console.log(error);
         }
-        console.log(data)
         var dataArr = data.split(",");
         var searchEndPoint = dataArr[0];
         var search = dataArr[1];
