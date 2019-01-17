@@ -1,4 +1,4 @@
-//setup my node server require modules
+//setup my node server require modules and set global varables
 
 require("dotenv").config();
 var axios = require("Axios");
@@ -17,8 +17,11 @@ var Spotify = require('node-spotify-api');
 var spotify = new Spotify(keys.spotify);
 
 // capture the arguments from comandline line and store it in a var
-var searchEndPoint = process.argv[2];
-var search = process.argv[3];
+function firstRun() {
+    var searchEndPoint = process.argv[2];
+    var search = process.argv[3];
+    searchDatabase(searchEndPoint, search)
+}
 
 
 
@@ -133,4 +136,4 @@ function sayWhat() {
 
 }
 // run program
-searchDatabase(searchEndPoint, search)
+firstRun()
