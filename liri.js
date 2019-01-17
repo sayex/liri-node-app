@@ -4,6 +4,7 @@ require("dotenv").config();
 var axios = require("Axios");
 var moment = require("moment");
 var keys = require("./keys.js");
+var fs = require("fs");
 
 //grab the keys in the .env file
 var omdb = keys.omdb.key;
@@ -19,41 +20,47 @@ var spotify = new Spotify(keys.spotify);
 var searchEndPoint = process.argv[2];
 var search = process.argv[3];
 
+
+
 // create our switch function
-switch (searchEndPoint) {
-    case "spotify-this-song":
-        {
-            searchSpotify();
-        }
-        break;
 
-    case "concert-this":
-        {
-            searchBands()
-        }
-        break;
+function searchDatabase(searchEndPoint, search) {
 
-    case "movie-this":
-        {
-            searchOMDB()
-        }
-        break;
+    switch (searchEndPoint) {
+        case "spotify-this-song":
+            {
+                searchSpotify(search);
+            }
+            break;
 
-    case "do-what-it-says":
-        {
-            sayWhat();
-        }
-        break;
+        case "concert-this":
+            {
+                searchBands(search)
+            }
+            break;
 
-    default:
-        {
-            console.log("no action found")
-        }
+        case "movie-this":
+            {
+                searchOMDB(search)
+            }
+            break;
+
+        case "do-what-it-says":
+            {
+                sayWhat(search);
+            }
+            break;
+
+        default:
+            {
+                console.log("no action found")
+            }
+    }
 }
 
 // create our functions for each switch item.
 
-function searchSpotify() {
+function searchSpotify(search) {
 
     spotify.search({
         type: 'track',
@@ -69,7 +76,7 @@ function searchSpotify() {
     });
 }
 
-function searchBands() {
+function searchBands(search) {
     axios.get("https://rest.bandsintown.com/artists/" + search + "/events?app_id=" + bitKey)
         .then(function (response) {
             resp = response.data
@@ -89,7 +96,7 @@ function searchBands() {
 
 }
 
-function searchOMDB() {
+function searchOMDB(search) {
     axios.get('http://www.omdbapi.com/?apikey=' + omdb + '&t=' + search)
         .then(function (response) {
             if (search = "") {
@@ -113,5 +120,17 @@ function searchOMDB() {
 
 function sayWhat() {
 
-    console.log("say what?")
+    fs.readFile("random.txt", "utf8", function (error, data) {
+        if (error) {
+            return console.log(error);
+        }
+        console.log(data)
+        var dataArr = data.split(",");
+        var searchEndPoint = dataArr[0];
+        var search = dataArr[1];
+        searchDatabase(searchEndPoint, search)
+    })
+
 }
+// run program
+searchDatabase(searchEndPoint, search)
