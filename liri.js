@@ -1,19 +1,25 @@
+//setup my node server require modules
+
 require("dotenv").config();
 var axios = require("Axios");
 var moment = require("moment");
 var keys = require("./keys.js");
 
+//grab the keys in the .env file
 var omdb = keys.omdb.key;
 var bitKey = keys.bit.key;
 var Spotify = require('node-spotify-api');
 
-
+// spotify uses OAuth so we need to create a new spotify varable using the secrets from the .env
+// this will pass the secrets to spotify api and return an api key we can use to search spotify
+// after we get a valid api key it switches to the search url.
 var spotify = new Spotify(keys.spotify);
 
+// capture the arguments from comandline line and store it in a var
 var searchEndPoint = process.argv[2];
 var search = process.argv[3];
 
-
+// create our switch function
 switch (searchEndPoint) {
     case "spotify-this-song":
         {
@@ -44,6 +50,8 @@ switch (searchEndPoint) {
             console.log("no action found")
         }
 }
+
+// create our functions for each switch item.
 
 function searchSpotify() {
 
