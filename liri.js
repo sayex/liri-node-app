@@ -107,13 +107,14 @@ function searchOMDB(search) {
                 search = "Mr. Nobody"
             }
             resp = response.data
-            console.log(resp.Title);
-            console.log(resp.Year);
-            console.log(resp.Ratings[1].Value);
-            console.log(resp.Country);
-            console.log(resp.Language);
-            console.log(resp.Plot);
-            console.log(resp.Actors);
+            console.log("Title: " + resp.Title);
+            console.log("Release Year: " + resp.Year);
+            console.log("IMDB Rating: " + resp.Ratings[0].Value);
+            console.log("Rotten Tomates Rating: " + resp.Ratings[1].Value);
+            console.log("Filmed in Country: " + resp.Country);
+            console.log("Film Language: " + resp.Language);
+            console.log("Plot: " + resp.Plot);
+            console.log("Actors: " + resp.Actors);
 
 
         })
