@@ -30,10 +30,10 @@
 
 #### Setup your .env file like this
 
-SPOTIFY_ID=SPOTIFY-Id-Goes-Here
+SPOTIFY_ID=spoity id goes here
 
-SPOTIFY_SECRET=SPOTIFY-Secret-Goes-Here
+SPOTIFY_SECRET=spotify secret goes here
 
-OMDB_Key=OMDB-Key
+OMDB_Key=omdb Key goes here
 
-BIT_Key=BIT-Key
+BIT_Key=Bands in Town Key goes here
