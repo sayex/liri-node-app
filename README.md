@@ -31,6 +31,7 @@
 #### Setup your .env file like this
 
 SPOTIFY_ID=SPOTIFY-Id-Goes-Here
+
 SPOTIFY_SECRET=SPOTIFY-Secret-Goes-Here
 
 OMDB_Key=OMDB-Key
