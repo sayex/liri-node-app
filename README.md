@@ -30,6 +30,9 @@
 
 #### Setup your .env file like this
 
+![](/gifs/envfilesetup.png)
+
+
 SPOTIFY_ID=spoity id goes here
 
 SPOTIFY_SECRET=spotify secret goes here
