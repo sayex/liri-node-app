@@ -2,16 +2,16 @@
 
 ## Project Goals
 
-* Create a node applicatiopn that takes in arguments and does something with them.
+* Create a node application that takes in arguments and does something with them.
 * Use the following API's
     1. Spotify API (spotify-this-song)
     2. OMDB API (movie-this)
     3. Bands In Town API (concert-this)
 * Search the listed API's and return the data to the console.
 
-* Be as dry as possable with your code.
+* Be as dry as possible with your code.
 
-* Be as clean as possable with your code.
+* Be as clean as possible with your code.
 
 ### Command Line Usage
 
