@@ -19,7 +19,7 @@ var spotify = new Spotify(keys.spotify);
 // capture the arguments from comandline line and store it in a var
 function firstRun() {
     var searchEndPoint = process.argv[2];
-    var search = process.argv[3];
+    var search = process.argv.slice(3).join(" ");
     searchDatabase(searchEndPoint, search)
 }
 
@@ -74,9 +74,13 @@ function searchSpotify(search) {
             return console.log('Error occurred: ' + err);
         }
         var results = data.tracks.items[0];
-        console.log(results.name)
-        console.log(results.href)
-        console.log(results.album.name)
+        for (i = 0; i < results.artists.length; i++) {
+            var resArtists = results.artists[i].name
+        }
+        console.log("Track Name: " + results.name)
+        console.log("Track Preview: " + results.preview_url)
+        console.log("Track Ablum: " + results.album.name)
+        console.log("Track Artists: " + resArtists)
     });
 }
 //bands in town search function
